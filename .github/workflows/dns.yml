@@ -1,0 +1,58 @@
+name: octoDNS Deployments
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - dns/partials/**/*.yml
+  pull_request:
+    branches: ["main"]
+    paths:
+      - dns/partials/**/*.yml
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3'
+    - name: Prepare dependencies
+      run: |
+        sudo apt-get update && sudo apt-get install --yes jq
+        pip install --user pipenv
+        pipenv install
+        sudo wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY} -O /usr/bin/yq
+        sudo chmod +x /usr/bin/yq
+      env:
+        VERSION: v4.45.1
+        BINARY: yq_linux_amd64
+    - name: Merge YAML-based DNS zonefile partials
+      run: pipenv run merge-zonefiles
+    - name: Dry-run DNS records deployment
+      run: pipenv run dns-dryrun
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3'
+      - name: Prepare dependencies
+        run: |
+          sudo apt-get update && sudo apt-get install --yes jq
+          pip install --user pipenv
+          pipenv install
+          sudo wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY} -O /usr/bin/yq
+          sudo chmod +x /usr/bin/yq
+        env:
+          VERSION: v4.45.1
+          BINARY: yq_linux_amd64
+      - name: Merge YAML-based DNS zonefile partials
+        run: pipenv run merge-zonefiles
+      - name: Deploy
+        run: pipenv run dns-deploy
