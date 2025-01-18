@@ -5,14 +5,20 @@ on:
     branches: ["main"]
     paths:
       - dns/partials/**/*.yml
+      - dns/*.yml
+      - octodns-config.yml
   pull_request:
     branches: ["main"]
     paths:
       - dns/partials/**/*.yml
+      - dns/*.yml
+      - octodns-config.yml
   workflow_dispatch:
 
 jobs:
   test:
+    permissions: 
+      contents: write
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -26,19 +32,26 @@ jobs:
         pipenv install
         sudo wget https://github.com/mikefarah/yq/releases/download/${VERSION}/${BINARY} -O /usr/bin/yq
         sudo chmod +x /usr/bin/yq
+        git config user.email "recaptimebot@gmail.com"
+        git config user.name "Recap Time Bot"
       env:
         VERSION: v4.45.1
         BINARY: yq_linux_amd64
     - name: Merge YAML-based DNS zonefile partials
       run: pipenv run merge-zonefiles
     - name: Dry-run DNS records deployment
-      run: pipenv run dns-dryrun
+      run: pipenv run dns-dryrun || true
   deploy:
     if: github.event_name != 'pull_request'
     needs: [test]
     runs-on: ubuntu-latest
     steps:
+      - name: Wait a bit for any changes
+        run: sleep 15
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3'
@@ -55,4 +68,9 @@ jobs:
       - name: Merge YAML-based DNS zonefile partials
         run: pipenv run merge-zonefiles
       - name: Deploy
-        run: pipenv run dns-deploy
+        run: ./script/deploybot-github
+        env:
+          SLACK_BOT_TOKEN_HACKCLUB: ${{ secrets.SLACK_BOT_TOKEN_HACKCLUB }}
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+          WORKFLOW_JOB_LOGS: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}/jobs/${{ github.job }}
+          JOB_ID: ${{github.job}}
