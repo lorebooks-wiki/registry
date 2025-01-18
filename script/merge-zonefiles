@@ -27,7 +27,7 @@ cat "${ROOT_DIR}/dns/header.yml" > "$ROOT_DIR/dns/lorebooks.wiki.yaml"
 cat "${ROOT_DIR}/dns/header.yml" > "$ROOT_DIR/dns/stellapent.wiki.yaml"
 
 echo "Removing comments"
-yq eval 'del(.. | select(tag == "!!comment")) | sort_keys(.)'  >> "${ROOT_DIR}/dns/lorebooks.wiki.yaml"
+yq eval 'del(.. | select(tag == "!!comment")) | sort_keys(.)' "$TEMPDIR/lorebooks.wiki.yaml" >> "${ROOT_DIR}/dns/lorebooks.wiki.yaml"
 yq eval 'del(.. | select(tag == "!!comment")) | sort_keys(.)' "$TEMPDIR/stellapent.wiki.yaml" >> "$ROOT_DIR/dns/stellapent.wiki.yaml"
 
 echo "Cleaning up"
