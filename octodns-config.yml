@@ -1,0 +1,18 @@
+providers:
+  cf:
+    account_id: 33e6189a4a87f1923e71af8da171e2ed
+    class: octodns_cloudflare.CloudflareProvider
+    delete_pcent_threshold: 0.3
+    token: env/CLOUDFLARE_TOKEN
+    update_pcent_threshold: 0.3
+  yaml-zonefiles:
+    class: octodns.provider.yaml.YamlProvider
+    directory: ./dns
+    enforce_order: false
+zones:
+  lorebooks.wiki.:
+    sources: [yaml-zonefiles]
+    targets: [cf]
+  stellapent.wiki.:
+    sources: [yaml-zonefiles]
+    targets: [cf]

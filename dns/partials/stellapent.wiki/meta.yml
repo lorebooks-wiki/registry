@@ -1,0 +1,35 @@
+# Meta DNS records for Stellapent Cier Community Wiki and friends
+# Maintainers:
+# - Andrei Jiroh Halili (@ajhalili2006, ajhalili2006@crew.recaptime.dev)
+---
+? ''
+: - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: MX
+    value:
+      exchange: diphda.uberspace.de.
+      preference: 0
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: TXT
+    value: v=spf1 include:spf.uberspace.de ~all
+_atproto:
+  octodns:
+    cloudflare:
+      comment: DID PLC verification for Bluesky
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: did=did:plc:o3bwnr72ns6cl2b5si54po2e
+uberspace._domainkey:
+  octodns:
+    cloudflare:
+      comment: Uberspace DKIM records for RecapTime.dev
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: uberspace._domainkey.crew.recaptime.dev.

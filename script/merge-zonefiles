@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+if [[ $DEBUG != "" ]]; then
+    set -x
+fi
+
+DNS_PARTIALS_DIR="$PWD/dns/partials"
+TEMP_FILE_LB=$(mktemp)
+TEMP_FILE_SP=$(mktemp)
+
+# Merge every zonefile partial into one giant file first
+echo "Generating merged YAML files"
+find "$DNS_PARTIALS_DIR/lorebooks.wiki" -type f -name "*.yml" -print0 | xargs -0 yq eval-all 'select(fileIndex == 0) * select(fileIndex > 0)' > "$TEMP_FILE_LB"
+find "$DNS_PARTIALS_DIR/stellapent.wiki" -type f -name "*.yml" -print0 | xargs -0 yq eval-all 'select(fileIndex == 0) * select(fileIndex > 0)' > "$TEMP_FILE_SP"
+echo
+
+if [[ $DEBUG != "" ]]; then
+  echo "Showing preview for $TEMP_FILE_LB"
+  cat "$TEMP_FILE_LB"
+  echo
+  sleep 5
+
+  echo "Showing preview for $TEMP_FILE_SP"
+  cat "$TEMP_FILE_SP"
+  echo
+fi
+
+# Convert to JSON to remove comments before loading it up
+# back into the main config
+cat dns/header.yml > dns/lorebooks.wiki.yaml
+cat dns/header.yml > dns/stellapent.wiki.yaml
+yq eval -o=json "$TEMP_FILE_LB" | jq -S 'del(.. | .comment?)' | yq eval -P | tee --append dns/lorebooks.wiki.yaml
+yq eval -o=json "$TEMP_FILE_SP" | jq -S 'del(.. | .comment?)' | yq eval -P | tee --append dns/stellapent.wiki.yaml

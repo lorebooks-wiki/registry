@@ -1,0 +1,8 @@
+squad:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: recaptimedev-wiki.pages.dev.

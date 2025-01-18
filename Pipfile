@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+octodns = "*"
+octodns-cloudflare = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.13"
+
+[scripts]
+merge-records = "pipenv run merge-zonefiles"
+merge-zonefiles = "./script/merge-zonefiles"
