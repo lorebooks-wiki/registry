@@ -2,6 +2,14 @@
 # see https://lorebooks.wiki/docs/reserved-subdomains for details.
 # DO NOT RESERVE YOUR SUBDOMAINS HERE BY MANUALLY EDITING THIS FILE!
 
+home:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: lorebooks-wiki.pages.dev.
 hackclub:
   octodns:
     cloudflare:

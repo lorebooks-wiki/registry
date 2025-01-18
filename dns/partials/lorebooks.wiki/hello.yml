@@ -1,0 +1,20 @@
+_acme-challenge.deno.hello:
+  octodns:
+    cloudflare:
+      comment: Managed by recaptime-dev
+  ttl: 300
+  type: CNAME
+  value: 9a8dbd25e5f083266d95ed6d._acme.deno.dev.
+deno.hello:
+- octodns:
+    cloudflare:
+      comment: Managed by recaptime-dev
+  ttl: 300
+  type: A
+  value: 34.120.54.55
+- octodns:
+    cloudflare:
+      comment: Managed by recaptime-dev
+  ttl: 300
+  type: AAAA
+  value: '2600:1901:0:6d85::'

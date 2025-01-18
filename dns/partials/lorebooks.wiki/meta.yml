@@ -5,6 +5,7 @@
 ? ''
 : octodns:
     cloudflare:
+      comment: Cloudflare Pages
       auto-ttl: true
       proxied: true
   ttl: 300
@@ -36,6 +37,7 @@
 '*.zulip-archive':
   octodns:
     cloudflare:
+      comment: GitHub Pages CNAME wildcard record
       auto-ttl: true
   ttl: 300
   type: CNAME
@@ -54,13 +56,6 @@ _acme-challenge.badges.api:
   ttl: 300
   type: CNAME
   value: 0d738b3d8fe48dd612acd44d._acme.deno.dev.
-_acme-challenge.deno.hello:
-  octodns:
-    cloudflare:
-      comment: Managed by recaptime-dev
-  ttl: 300
-  type: CNAME
-  value: 9a8dbd25e5f083266d95ed6d._acme.deno.dev.
 _gh-lorebooks-wiki-o:
   octodns:
     cloudflare:
@@ -92,20 +87,20 @@ _github-pages-challenge-lorebooks-wiki.beta:
 api:
 - octodns:
     cloudflare:
-      comment: Managed by recaptime-dev
+      comment: Registry API, hosted on Deno Deploy
   ttl: 300
   type: A
   value: 34.120.54.55
 - octodns:
     cloudflare:
-      comment: Managed by recaptime-dev
+      comment: Registry API, hosted on Deno Deploy
   ttl: 300
   type: AAAA
   value: '2600:1901:0:6d85::'
 badges.api:
 - octodns:
     cloudflare:
-      comment: Managed by recaptime-dev
+      comment: Badges API, hosted on Deno Deploy
   ttl: 300
   type: A
   value: 34.120.54.55
@@ -118,29 +113,21 @@ badges.api:
 cdn:
   octodns:
     cloudflare:
-      comment: Managed by recaptime-dev
+      comment: Storj DCS custom domain
   ttl: 300
   type: CNAME
   value: link.storjshare.io.
-home:
+"*.cdn":
   octodns:
     cloudflare:
-      auto-ttl: true
-      proxied: true
-  ttl: 300
-  type: CNAME
-  value: lorebooks-wiki.pages.dev.
-meta.cdn:
-  octodns:
-    cloudflare:
-      comment: Managed by recaptime-dev
+      comment: Storj DCS custom domain
   ttl: 300
   type: CNAME
   value: link.storjshare.io.
 txt-cdn:
   octodns:
     cloudflare:
-      comment: Managed by recaptime-dev
+      comment: Storj DCS config for cdn
   ttl: 300
   type: TXT
   values:
@@ -150,7 +137,7 @@ txt-cdn:
 txt-meta.cdn:
   octodns:
     cloudflare:
-      comment: Managed by recaptime-dev
+      comment: Storj DCS config for meta.cdn
   ttl: 300
   type: TXT
   values:
@@ -160,6 +147,7 @@ txt-meta.cdn:
 www:
   octodns:
     cloudflare:
+      comment: www alias for website
       auto-ttl: true
       proxied: true
   ttl: 300
