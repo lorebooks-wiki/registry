@@ -1,0 +1,11 @@
+{
+    "conventionalCommits.scopes": [
+        "global",
+        "github",
+        "github-actions",
+        "dns",
+        "pipenv",
+        "api"
+    ],
+    "deno.enablePaths": ["./api"]
+}
