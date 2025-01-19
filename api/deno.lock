@@ -1,0 +1,214 @@
+{
+  "version": "4",
+  "specifiers": {
+    "jsr:@hono/hono@*": "4.6.17",
+    "jsr:@std/yaml@*": "1.0.5",
+    "npm:@hono/zod-validator@~0.4.2": "0.4.2_hono@4.6.17_zod@3.24.1",
+    "npm:@octokit/rest@*": "21.1.0_@octokit+core@6.1.3",
+    "npm:chanfana@*": "2.6.3_zod@3.24.1",
+    "npm:hono-openapi@~0.4.1": "0.4.1_@hono+zod-validator@0.4.2__hono@4.6.17__zod@3.24.1_zod@3.24.1_zod-openapi@4.2.2__zod@3.24.1",
+    "npm:zod-openapi@^4.2.2": "4.2.2_zod@3.24.1",
+    "npm:zod@*": "3.24.1"
+  },
+  "jsr": {
+    "@hono/hono@4.6.17": {
+      "integrity": "932fcc61d043b14a8b2cb65242716eb32da44e91f2ee117fd7390508669fea31"
+    },
+    "@std/yaml@1.0.5": {
+      "integrity": "71ba3d334305ee2149391931508b2c293a8490f94a337eef3a09cade1a2a2742"
+    }
+  },
+  "npm": {
+    "@apidevtools/json-schema-ref-parser@11.7.3": {
+      "integrity": "sha512-WApSdLdXEBb/1FUPca2lteASewEfpjEYJ8oXZP+0gExK5qSfsEKBKcA+WjY6Q4wvXwyv0+W6Kvc372pSceib9w==",
+      "dependencies": [
+        "@jsdevtools/ono",
+        "@types/json-schema",
+        "js-yaml"
+      ]
+    },
+    "@asteasolutions/zod-to-openapi@7.3.0_zod@3.24.1": {
+      "integrity": "sha512-7tE/r1gXwMIvGnXVUdIqUhCU1RevEFC4Jk6Bussa0fk1ecbnnINkZzj1EOAJyE/M3AI25DnHT/zKQL1/FPFi8Q==",
+      "dependencies": [
+        "openapi3-ts",
+        "zod"
+      ]
+    },
+    "@hono/zod-validator@0.4.2_hono@4.6.17_zod@3.24.1": {
+      "integrity": "sha512-1rrlBg+EpDPhzOV4hT9pxr5+xDVmKuz6YJl+la7VCwK6ass5ldyKm5fD+umJdV2zhHD6jROoCCv8NbTwyfhT0g==",
+      "dependencies": [
+        "hono",
+        "zod"
+      ]
+    },
+    "@jsdevtools/ono@7.1.3": {
+      "integrity": "sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg=="
+    },
+    "@octokit/auth-token@5.1.1": {
+      "integrity": "sha512-rh3G3wDO8J9wSjfI436JUKzHIxq8NaiL0tVeB2aXmG6p/9859aUOAjA9pmSPNGGZxfwmaJ9ozOJImuNVJdpvbA=="
+    },
+    "@octokit/core@6.1.3": {
+      "integrity": "sha512-z+j7DixNnfpdToYsOutStDgeRzJSMnbj8T1C/oQjB6Aa+kRfNjs/Fn7W6c8bmlt6mfy3FkgeKBRnDjxQow5dow==",
+      "dependencies": [
+        "@octokit/auth-token",
+        "@octokit/graphql",
+        "@octokit/request",
+        "@octokit/request-error",
+        "@octokit/types",
+        "before-after-hook",
+        "universal-user-agent"
+      ]
+    },
+    "@octokit/endpoint@10.1.2": {
+      "integrity": "sha512-XybpFv9Ms4hX5OCHMZqyODYqGTZ3H6K6Vva+M9LR7ib/xr1y1ZnlChYv9H680y77Vd/i/k+thXApeRASBQkzhA==",
+      "dependencies": [
+        "@octokit/types",
+        "universal-user-agent"
+      ]
+    },
+    "@octokit/graphql@8.1.2": {
+      "integrity": "sha512-bdlj/CJVjpaz06NBpfHhp4kGJaRZfz7AzC+6EwUImRtrwIw8dIgJ63Xg0OzV9pRn3rIzrt5c2sa++BL0JJ8GLw==",
+      "dependencies": [
+        "@octokit/request",
+        "@octokit/types",
+        "universal-user-agent"
+      ]
+    },
+    "@octokit/openapi-types@23.0.1": {
+      "integrity": "sha512-izFjMJ1sir0jn0ldEKhZ7xegCTj/ObmEDlEfpFrx4k/JyZSMRHbO3/rBwgE7f3m2DHt+RrNGIVw4wSmwnm3t/g=="
+    },
+    "@octokit/plugin-paginate-rest@11.4.0_@octokit+core@6.1.3": {
+      "integrity": "sha512-ttpGck5AYWkwMkMazNCZMqxKqIq1fJBNxBfsFwwfyYKTf914jKkLF0POMS3YkPBwp5g1c2Y4L79gDz01GhSr1g==",
+      "dependencies": [
+        "@octokit/core",
+        "@octokit/types"
+      ]
+    },
+    "@octokit/plugin-request-log@5.3.1_@octokit+core@6.1.3": {
+      "integrity": "sha512-n/lNeCtq+9ofhC15xzmJCNKP2BWTv8Ih2TTy+jatNCCq/gQP/V7rK3fjIfuz0pDWDALO/o/4QY4hyOF6TQQFUw==",
+      "dependencies": [
+        "@octokit/core"
+      ]
+    },
+    "@octokit/plugin-rest-endpoint-methods@13.3.0_@octokit+core@6.1.3": {
+      "integrity": "sha512-LUm44shlmkp/6VC+qQgHl3W5vzUP99ZM54zH6BuqkJK4DqfFLhegANd+fM4YRLapTvPm4049iG7F3haANKMYvQ==",
+      "dependencies": [
+        "@octokit/core",
+        "@octokit/types"
+      ]
+    },
+    "@octokit/request-error@6.1.6": {
+      "integrity": "sha512-pqnVKYo/at0NuOjinrgcQYpEbv4snvP3bKMRqHaD9kIsk9u1LCpb2smHZi8/qJfgeNqLo5hNW4Z7FezNdEo0xg==",
+      "dependencies": [
+        "@octokit/types"
+      ]
+    },
+    "@octokit/request@9.2.0": {
+      "integrity": "sha512-kXLfcxhC4ozCnAXy2ff+cSxpcF0A1UqxjvYMqNuPIeOAzJbVWQ+dy5G2fTylofB/gTbObT8O6JORab+5XtA1Kw==",
+      "dependencies": [
+        "@octokit/endpoint",
+        "@octokit/request-error",
+        "@octokit/types",
+        "fast-content-type-parse",
+        "universal-user-agent"
+      ]
+    },
+    "@octokit/rest@21.1.0_@octokit+core@6.1.3": {
+      "integrity": "sha512-93iLxcKDJboUpmnUyeJ6cRIi7z7cqTZT1K7kRK4LobGxwTwpsa+2tQQbRQNGy7IFDEAmrtkf4F4wBj3D5rVlJQ==",
+      "dependencies": [
+        "@octokit/core",
+        "@octokit/plugin-paginate-rest",
+        "@octokit/plugin-request-log",
+        "@octokit/plugin-rest-endpoint-methods"
+      ]
+    },
+    "@octokit/types@13.7.0": {
+      "integrity": "sha512-BXfRP+3P3IN6fd4uF3SniaHKOO4UXWBfkdR3vA8mIvaoO/wLjGN5qivUtW0QRitBHHMcfC41SLhNVYIZZE+wkA==",
+      "dependencies": [
+        "@octokit/openapi-types"
+      ]
+    },
+    "@types/json-schema@7.0.15": {
+      "integrity": "sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA=="
+    },
+    "argparse@2.0.1": {
+      "integrity": "sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q=="
+    },
+    "before-after-hook@3.0.2": {
+      "integrity": "sha512-Nik3Sc0ncrMK4UUdXQmAnRtzmNQTAAXmXIopizwZ1W1t8QmfJj+zL4OA2I7XPTPW5z5TDqv4hRo/JzouDJnX3A=="
+    },
+    "chanfana@2.6.3_zod@3.24.1": {
+      "integrity": "sha512-Wb3Mc+xte4NzCwZsNgP1TmTunkkIZwmkyP2Ph+JfzypE4UYMf1oppNKGUvWuAEAWH9U17V4QMlRxTfWc6uWyrw==",
+      "dependencies": [
+        "@asteasolutions/zod-to-openapi",
+        "js-yaml",
+        "openapi3-ts",
+        "zod"
+      ]
+    },
+    "clone@2.1.2": {
+      "integrity": "sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w=="
+    },
+    "fast-content-type-parse@2.0.1": {
+      "integrity": "sha512-nGqtvLrj5w0naR6tDPfB4cUmYCqouzyQiz6C5y/LtcDllJdrcc6WaWW6iXyIIOErTa/XRybj28aasdn4LkVk6Q=="
+    },
+    "hono-openapi@0.4.1_@hono+zod-validator@0.4.2__hono@4.6.17__zod@3.24.1_zod@3.24.1_zod-openapi@4.2.2__zod@3.24.1": {
+      "integrity": "sha512-GkE3xJ3PsOJG8i7oYKpMVppXGN4Yg6FL5/zSejSssTQOkiVLwuxWEgT+jOPhhzhHwziUdWpTKNRWc0Xm9UWRYQ==",
+      "dependencies": [
+        "@hono/zod-validator",
+        "json-schema-walker",
+        "zod",
+        "zod-openapi"
+      ]
+    },
+    "hono@4.6.17": {
+      "integrity": "sha512-Kbh4M0so2RzLiIg6iP33DoTU68TdvP2O/kb1Hhhdwa37fazuf402ig8ZRfjkz2dqXwiWl2dAgh0f++TuKAdOtQ=="
+    },
+    "js-yaml@4.1.0": {
+      "integrity": "sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==",
+      "dependencies": [
+        "argparse"
+      ]
+    },
+    "json-schema-walker@2.0.0": {
+      "integrity": "sha512-nXN2cMky0Iw7Af28w061hmxaPDaML5/bQD9nwm1lOoIKEGjHcRGxqWe4MfrkYThYAPjSUhmsp4bJNoLAyVn9Xw==",
+      "dependencies": [
+        "@apidevtools/json-schema-ref-parser",
+        "clone"
+      ]
+    },
+    "openapi3-ts@4.4.0": {
+      "integrity": "sha512-9asTNB9IkKEzWMcHmVZE7Ts3kC9G7AFHfs8i7caD8HbI76gEjdkId4z/AkP83xdZsH7PLAnnbl47qZkXuxpArw==",
+      "dependencies": [
+        "yaml"
+      ]
+    },
+    "universal-user-agent@7.0.2": {
+      "integrity": "sha512-0JCqzSKnStlRRQfCdowvqy3cy0Dvtlb8xecj/H8JFZuCze4rwjPZQOgvFvn0Ws/usCHQFGpyr+pB9adaGwXn4Q=="
+    },
+    "yaml@2.7.0": {
+      "integrity": "sha512-+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA=="
+    },
+    "zod-openapi@4.2.2_zod@3.24.1": {
+      "integrity": "sha512-h1H5ODEc4paf3UKH0h3tp9P3W/FeRXo7wk1bo1P7KofhfxosI4vJdOgeIt2aRyqHorxUAjd/kIvxRWENnBqI5w==",
+      "dependencies": [
+        "zod"
+      ]
+    },
+    "zod@3.24.1": {
+      "integrity": "sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@hono/hono@*",
+      "jsr:@std/yaml@*",
+      "npm:@hono/zod-validator@~0.4.2",
+      "npm:@octokit/rest@*",
+      "npm:chanfana@*",
+      "npm:hono-openapi@~0.4.1",
+      "npm:zod-openapi@^4.2.2",
+      "npm:zod@*"
+    ]
+  }
+}

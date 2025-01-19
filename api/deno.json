@@ -1,0 +1,16 @@
+{
+  "tasks": {
+    "start": "deno run -A --env-file=.env main.ts",
+    "dev": "deno run -A --env-file=.env --watch main.ts"
+  },
+  "imports": {
+    "@hono/zod-validator": "npm:@hono/zod-validator@^0.4.2",
+    "hono": "jsr:@hono/hono",
+    "chanfana": "npm:chanfana",
+    "@std/yaml": "jsr:@std/yaml",
+    "@octokit/rest": "npm:@octokit/rest",
+    "hono-openapi": "npm:hono-openapi@^0.4.1",
+    "zod": "npm:zod",
+    "zod-openapi": "npm:zod-openapi@^4.2.2"
+  }
+}
