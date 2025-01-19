@@ -7,12 +7,16 @@ on:
       - dns/partials/**/*.yml
       - dns/*.yml
       - octodns-config.yml
+      - .github/workflows/dns.yml
+      - Pipfile*
   pull_request:
     branches: ["main"]
     paths:
       - dns/partials/**/*.yml
       - dns/*.yml
       - octodns-config.yml
+      - .github/workflows/dns.yml
+      - Pipfile*
   workflow_dispatch:
 
 jobs:
@@ -24,7 +28,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: actions/setup-python@v5
       with:
-        python-version: '3'
+        python-version: '3.13'
     - name: Prepare dependencies
       run: |
         sudo apt-get update && sudo apt-get install --yes jq
@@ -41,6 +45,8 @@ jobs:
       run: pipenv run merge-zonefiles
     - name: Dry-run DNS records deployment
       run: pipenv run dns-dryrun || true
+      env:
+        CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
   deploy:
     if: github.event_name != 'pull_request'
     needs: [test]
@@ -54,7 +60,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
-          python-version: '3'
+          python-version: '3.13'
       - name: Prepare dependencies
         run: |
           sudo apt-get update && sudo apt-get install --yes jq
