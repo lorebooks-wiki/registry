@@ -1,0 +1,12 @@
+in_use: false
+reserved: true
+domain_reservation_reason: Abuse/impersonation prevention
+subdomain_maintainers:
+  - name: Andrei Jiroh Halili
+    github: ajhalili2006
+    email: ajhalili2006@crew.recaptime.dev
+    bluesky: andreijiroh.dev
+    fediverse: https://tilde.zone/@ajhalili2006
+contact_details:
+  github: recaptime-dev
+  email: squad@crew.recaptime.dev
