@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 commit-changes() {
-    git stage -v dns/*.yml
-    git commit --signoff --message "chore(dns): update merged zonefile(s) for octoDNS (created via update-nerged-zonefiles) [skip-ci]"
-    git push
+  git stage -v dns/*.yml
+  git commit --signoff --message "chore(dns): update merged zonefile(s) for octoDNS (created via update-nerged-zonefiles) [skip-ci]"
+  git push
 }
 
 if ! git diff --cached --quiet HEAD -- dns/*.yml; then
-    echo "Changes found, commiting them in"
-    commit-changes
+  echo "Changes found, commiting them in"
+  commit-changes
 else
-    echo Nothing to see here, skipping...
+  echo Nothing to see here, skipping...
 fi

@@ -3,40 +3,42 @@
 set -xeo pipefail
 
 notify_slack() {
-    status=$1
-    description=$2
-    job_id="${JOB_ID}"
-    job_logs_url="${WORKFLOW_JOB_LOGS}"
+  status=$1
+  description=$2
+  # handled through GitHub Actions config
+  job_id="${JOB_ID}"
+  job_logs_url="${WORKFLOW_JOB_LOGS}"
 
-    curl -H "User-Agent: RecapTimeBot/2025.01.19 (https://github.com/lorebooks-wiki/registry)" \
-        -H "Authorization: Bearer ${SLACK_BOT_TOKEN_HACKCLUB}" \
-        -H "Content-Type: application/json" -X POST \
-		-d "{\"channel\": \"C07NVJU9YJD\",\"blocks\": [{\"type\": \"header\",\"text\": {\"type\": \"plain_text\",\"text\": \"octoDNS Deployments Notifications for Community Lorebooks\",\"emoji\": true}}, {\"type\": \"section\",\"text\": {\"type\": \"mrkdwn\",\"text\": \"${status}\n${description}\"}},{\"type\": \"context\",\"elements\": [{\"type\": \"image\",\"image_url\": \"https://github.com/fluidicon.png\",\"alt_text\": \"GitHub\"},{\"type\": \"mrkdwn\",\"text\": \"<${job_logs_url}|See workflow logs> for detailed context on the CI job. Ping @ajhalili2006 for questions. (job ID for context: \`${job_id}\`)\"}]}],\"text\": \"*octoDNS Deployments Notifications for Community Lorebooks*: $status - $description\"}" \
-        https://slack.com/api/chat.postMessage
+  # the data flag gone horribly long, apologies for that
+  curl -H "User-Agent: RecapTimeBot/2025.01.19 (https://github.com/lorebooks-wiki/registry)" \
+    -H "Authorization: Bearer ${SLACK_BOT_TOKEN_HACKCLUB}" \
+    -H "Content-Type: application/json" -X POST \
+    -d "{\"channel\": \"C07NVJU9YJD\",\"blocks\": [{\"type\": \"header\",\"text\": {\"type\": \"plain_text\",\"text\": \"octoDNS Deployments Notifications for Community Lorebooks\",\"emoji\": true}}, {\"type\": \"section\",\"text\": {\"type\": \"mrkdwn\",\"text\": \"${status}\n${description}\"}},{\"type\": \"context\",\"elements\": [{\"type\": \"image\",\"image_url\": \"https://github.com/fluidicon.png\",\"alt_text\": \"GitHub\"},{\"type\": \"mrkdwn\",\"text\": \"<${job_logs_url}|See workflow logs> for detailed context on the CI job. Ping @ajhalili2006 for questions. (job ID for context: \`${job_id}\`)\"}]}],\"text\": \"*octoDNS Deployments Notifications for Community Lorebooks*: $status - $description\"}" \
+    https://slack.com/api/chat.postMessage
 }
 
 echo "::group::Attempt 1 - Running 'pipenv run dns-apply' without --force"
 if ! pipenv run dns-apply; then
-    echo "::warning title=Attempt 1 failed::Will doing another round with force flag in 5 minutes."
-    notify_slack ":warning: *Deployment attempt #1 failed*" "We'll be trying again in 5 minutes with the \`--force\` flag."
+  echo "::warning title=Attempt 1 failed::Will doing another round with force flag in 2.5 minutes."
+  notify_slack ":warning: *Deployment attempt #1 failed*" "We'll be trying again in 2.5 minutes with the \`--force\` flag."
 else
-    echo "notice title=Attempt 1 succeeded::DNS record changes should propagate in a hour or so."
-    notify_slack ":white_check_mark: *Deployment attempt #1 succeeded*" "DNS record changes should propagate in a hour or so."
-    exit 0
+  echo "notice title=Attempt 1 succeeded::DNS record changes should propagate in a hour or so."
+  notify_slack ":white_check_mark: *Deployment attempt #1 succeeded*" "DNS record changes should propagate in a hour or so."
+  exit 0
 fi
 echo "::endgroup::"
 
 # sleep here for safety
-sleep 300
+sleep 150
 
 echo "::group::Attempt 2 - Running 'pipenv run dns-apply' with --force"
 if ! pipenv run dns-apply --force; then
-    errorcode=$?
-    echo "::error title=Attempt 2 failed::Please look at the CI logs and YAML files for issues."
-    notify_slack ":x: *Deployment attempt 2 failed*" "Something really went wrong while running the second attempt with the \`--force\` flag. Check logs and YAMl files for hints."
-    exit $errorcode
+  errorcode=$?
+  echo "::error title=Attempt 2 failed::Please look at the CI logs and YAML files for issues."
+  notify_slack ":x: *Deployment attempt 2 failed*" "Something really went wrong while running the second attempt with the \`--force\` flag. Check logs and YAMl files for hints."
+  exit $errorcode
 else
-    echo "notice title=Attempt 2 succeeded::DNS record changes should propagate in a hour or so."
-    notify_slack ":white_check_mark: *Deployment attempt #2 succeeded*" "DNS record changes should propagate in a hour or so."
-    exit 0
+  echo "notice title=Attempt 2 succeeded::DNS record changes should propagate in a hour or so."
+  notify_slack ":white_check_mark: *Deployment attempt #2 succeeded*" "DNS record changes should propagate in a hour or so."
+  exit 0
 fi

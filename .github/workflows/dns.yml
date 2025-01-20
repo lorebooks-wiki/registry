@@ -73,10 +73,13 @@ jobs:
           BINARY: yq_linux_amd64
       - name: Merge YAML-based DNS zonefile partials
         run: pipenv run merge-zonefiles
+      - name: Get job ID for Slack notifications
+        uses: austenstone/job-id@v1
+        id: job_id
       - name: Deploy
         run: ./script/deploybot-github
         env:
           SLACK_BOT_TOKEN_HACKCLUB: ${{ secrets.SLACK_BOT_TOKEN_HACKCLUB }}
           CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-          WORKFLOW_JOB_LOGS: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}/jobs/${{ github.job }}
-          JOB_ID: ${{github.job}}
+          WORKFLOW_JOB_LOGS: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}/job/${{ steps.job_id.outputs.job-id }}
+          JOB_ID: ${{ steps.job_id.outputs.job-id }}
