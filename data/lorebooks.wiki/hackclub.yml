@@ -1,6 +1,12 @@
+# yaml-language-server: $schema=../registry-schema.json
 in_use: false
 reserved: true
 domain_reservation_reason: Abuse/impersonation prevention
+project_name: Hack Club Community
+project_description: Subdomain namespace for Hack Club community projects
+project_licenses:
+  - MIT
+project_repo_url: https://github.com/hackclub/hackclub
 subdomain_maintainers:
   - name: Andrei Jiroh Halili
     github: ajhalili2006

@@ -1,8 +1,9 @@
+# yaml-language-server: $schema=../registry-schema.json
 in_use: true
 reserved: false
 
 # project metadata
-project_title: "Community Lorebooks"
+project_name: "Community Lorebooks"
 project_description: "Community Lorebooks' main domain and project homepage"
 project_license:
 - MPL-2.0
@@ -18,6 +19,13 @@ subdomain_maintainers:
     email: ajhalili2006@crew.recaptime.dev
     bluesky: andreijiroh.dev
     fediverse: https://tilde.zone/@ajhalili2006
+    matrix: ajhalili2006@andreijiroh.dev
+    slack:
+      - team: hackclub
+        team_id: T0266FRGM
+        username: ajhalili2006
+        user_id: TBD  `1BG`
+
 
 # contact details for the team/project
 contact_details:
