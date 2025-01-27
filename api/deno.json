@@ -28,9 +28,7 @@
     "exclude": [
       "**/node_modules"
     ],
-    "include": [
-      "../data/registry-schema.json"
-    ],
+    "include": [],
     "entrypoint": "main.ts"
   }
 }
