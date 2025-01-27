@@ -3,7 +3,7 @@ import { fromHono } from 'chanfana';
 import config from "./lib/config.ts";
 import { pingOps } from "./routes/ping.ts";
 import { subNameLookup } from "./routes/regtstry.ts";
-export const app = new Hono()
+const app = new Hono()
 export const openapi = fromHono(app, {
   docs_url: "/docs",
   schema: {
@@ -25,8 +25,12 @@ export const openapi = fromHono(app, {
   }
 })
 
+import yamlSchema from "../data/registry-schema.json" with { type: "json" }
 app.get("/", (context: Context) => {
   return context.redirect(config.registryRepo)
+})
+app.get("/yaml-schema", (context: Context) => {
+  return context.json(yamlSchema)
 })
 
 openapi.get("/ping", pingOps)

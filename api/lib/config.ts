@@ -6,7 +6,8 @@ const config = {
         repo: "registry"
     },
     port: Number(Deno.env.get("PORT")) || 8080,
-    yamlFetcherMethod: Deno.env.get("YAML_FETCHER_METHOD") || "local"
+    yamlFetcherMethod: Deno.env.get("YAML_FETCHER_METHOD") || "local",
+    owlKey: Deno.env.get("OWL_PRIVATE_KEY")
 }
 
 export default config

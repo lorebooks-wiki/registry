@@ -1,7 +1,9 @@
 {
+  "$schema": "https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json",
   "tasks": {
     "start": "deno run -A --env-file=.env main.ts",
-    "dev": "deno run -A --env-file=.env --watch main.ts"
+    "dev": "deno run -A --env-file=.env --watch main.ts",
+    "copy-schema": "cp ../data/registry-schema.json lib/yaml-schema.json"
   },
   "imports": {
     "@hono/zod-validator": "npm:@hono/zod-validator@^0.4.2",
@@ -10,7 +12,25 @@
     "@std/yaml": "jsr:@std/yaml",
     "@octokit/rest": "npm:@octokit/rest",
     "hono-openapi": "npm:hono-openapi@^0.4.1",
+    "node-jose": "npm:node-jose@^2.2.0",
     "zod": "npm:zod",
-    "zod-openapi": "npm:zod-openapi@^4.2.2"
+    "zod-openapi": "npm:zod-openapi@^4.2.2",
+    "deployctl": "jsr:@deno/deployctl"
+  },
+  "nodeModulesDir": "auto",
+  "compilerOptions": {
+    "types": [
+      "npm:@types/node-jose"
+    ]
+  },
+  "deploy": {
+    "project": "a779cdd3-3a06-41bf-9498-0a5ae4e896a8",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [
+      "../data/registry-schema.json"
+    ],
+    "entrypoint": "main.ts"
   }
 }

@@ -1,0 +1,5 @@
+node_modules
+*.pem
+*.decrypted
+!.env.example
+.env.keys

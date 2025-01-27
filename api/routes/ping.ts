@@ -3,7 +3,7 @@ import { OpenAPIRoute } from "chanfana";
 
 export class pingOps extends OpenAPIRoute {
   override schema: OpenAPIRouteSchema = {
-    summary: "Cookery",
+    summary: "Check whenever the API is up",
     request: {},
     responses: {
       "200" : {
