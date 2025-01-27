@@ -25,7 +25,7 @@ export const openapi = fromHono(app, {
   }
 })
 
-import yamlSchema from "../data/registry-schema.json" with { type: "json" }
+import yamlSchema from "./lib/yaml-schema.json" with { type: "json" }
 app.get("/", (context: Context) => {
   return context.redirect(config.registryRepo)
 })
