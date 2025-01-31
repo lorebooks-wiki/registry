@@ -10,17 +10,3 @@ home:
   ttl: 300
   type: CNAME
   value: lorebooks-wiki.pages.dev.
-hackclub:
-  octodns:
-    cloudflare:
-      comment: Managed by ajhalili2006 on behalf of hackclub
-  ttl: 300
-  type: CNAME
-  value: ajhalili2006.hackclub.app.
-hackclub.beta:
-  octodns:
-    cloudflare:
-      comment: Managed by ajhalili2006 on behalf of hackclub
-  ttl: 300
-  type: CNAME
-  value: ajhalili2006.hackclub.app.

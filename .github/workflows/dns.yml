@@ -42,15 +42,18 @@ jobs:
         VERSION: v4.45.1
         BINARY: yq_linux_amd64
     - name: Merge YAML-based DNS zonefile partials
-      run: pipenv run merge-zonefiles
+      run: |
+        pipenv run merge-zonefiles
+        ./script/update-merged-zonefiles
     - name: Dry-run DNS records deployment
-      run: pipenv run dns-dryrun || true
+      run: pipenv run dns-dryrun
       env:
         CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
   deploy:
     if: github.event_name != 'pull_request'
     needs: [test]
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Wait a bit for any changes
         run: sleep 15

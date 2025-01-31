@@ -172,6 +172,14 @@ home:
   ttl: 300
   type: CNAME
   value: lorebooks-wiki.pages.dev.
+leeksbot.hackclub:
+  octodns:
+    cloudflare:
+      proxied: true
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: hackclub-leeksbot.pages.dev.
 squad:
   octodns:
     cloudflare:
