@@ -24,6 +24,7 @@ jobs:
     permissions: 
       contents: write
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-python@v5
@@ -53,7 +54,6 @@ jobs:
     if: github.event_name != 'pull_request'
     needs: [test]
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - name: Wait a bit for any changes
         run: sleep 15
