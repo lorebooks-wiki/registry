@@ -48,7 +48,7 @@ _acme-challenge.api:
       comment: Managed by recaptime-dev
   ttl: 300
   type: CNAME
-  value: pending-id._acme.deno.dev.
+  value: b5152ab2ce0ce30bc9af6746._acme.deno.dev.
 _acme-challenge.badges.api:
   octodns:
     cloudflare:
@@ -56,6 +56,10 @@ _acme-challenge.badges.api:
   ttl: 300
   type: CNAME
   value: 0d738b3d8fe48dd612acd44d._acme.deno.dev.
+_acme-challenge.open:
+  ttl: 300
+  type: CNAME
+  value: 13a1cfe53dd312e3c474f21d._acme.deno.dev.
 _gh-lorebooks-wiki-o:
   octodns:
     cloudflare:
@@ -124,6 +128,19 @@ cdn:
   ttl: 300
   type: CNAME
   value: link.storjshare.io.
+open:
+- octodns:
+    cloudflare:
+      comment: Interwiki Redirects, hosted on Deno Deploy
+  ttl: 300
+  type: A
+  value: 34.120.54.55
+- octodns:
+    cloudflare:
+      comment: Interwiki Redirects, hosted on Deno Deploy
+  ttl: 300
+  type: AAAA
+  value: '2600:1901:0:6d85::'
 txt-cdn:
   octodns:
     cloudflare:
