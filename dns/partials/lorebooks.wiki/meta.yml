@@ -78,13 +78,6 @@ _acme-challenge.badges.api:
   ttl: 300
   type: CNAME
   value: 0d738b3d8fe48dd612acd44d._acme.deno.dev.
-_acme-challenge.deno.hello:
-  octodns:
-    cloudflare:
-      comment: Managed by recaptime-dev
-  ttl: 300
-  type: CNAME
-  value: 9a8dbd25e5f083266d95ed6d._acme.deno.dev.
 _acme-challenge.go:
   ttl: 300
   type: CNAME
@@ -144,19 +137,6 @@ cf2024-1._domainkey:
   ttl: 300
   type: TXT
   value: v=DKIM1\; h=sha256\; k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB
-deno.hello:
-  - octodns:
-      cloudflare:
-        comment: Managed by recaptime-dev
-    ttl: 300
-    type: A
-    value: 34.120.54.55
-  - octodns:
-      cloudflare:
-        comment: Managed by recaptime-dev
-    ttl: 300
-    type: AAAA
-    value: "2600:1901:0:6d85::"
 open:
   - octodns:
       cloudflare:
