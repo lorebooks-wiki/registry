@@ -1,0 +1,17 @@
+name: Reserve a subdomain
+description: >-
+  Reserve a subdomain for your project or organization's future use or for trademark reasons.
+title: "[subdomain requests]: reserve subdomain.<lorebooks|stellapent>.wiki"
+body:
+  - type: checkboxes
+    id: legalese
+    attributes:
+      label: Legalese
+      options:
+        - label: >-
+            I agree to the [AUP and ToS](https://lorebooks.wiki/legal/tos/) of Community Lorebooks subdomain service
+            as well as [the code of conduct](https://policies.recaptime.dev/coc).
+          required: true
+        - label: >-
+            I understand that the subdomain will be reserved for future use or for trademark reasons.
+          required: true

@@ -1,8 +1,10 @@
 name: Request for subdomain
 description: >-
   Use this issue form to request for a subdomain, even if you plan to write YAML
-  files yourself later on
-title: '[subdomain requests]: new subdomain - subdomain.<lorebooks|stellapent>.wiki'
+  files yourself later on. This way, we can ensure that your subdomain is
+  properly configured and maintained alongside allowing us to review its purpose
+  even before sending any pull request.
+title: "[subdomain requests]: new subdomain - subdomain.<lorebooks|stellapent>.wiki"
 body:
   - type: checkboxes
     id: legalese
@@ -10,8 +12,8 @@ body:
       label: Legalese
       options:
         - label: >-
-            I agree to the AUP and ToS of Community Lorebooks subdomain service
-            as well as the code of conduct.
+            I agree to the [AUP and ToS](https://lorebooks.wiki/legal/tos/) of Community Lorebooks subdomain service
+            as well as [the code of conduct](https://policies.recaptime.dev/coc).
           required: true
         - label: >-
             I confirm that I will use my subdomain for personal or
@@ -32,26 +34,29 @@ body:
     attributes:
       label: Who will be the designated subdomain maintainer
       description: >-
-        If it is going to be used as a team, please mention the lead maintainers
-        here.
+        If it is going to be used as a team, please mention the projects maintainers
+        and their contact details.
     validations:
       required: true
   - type: input
-    id: owl
+    id: contact_details
     attributes:
-      label: OWL string
+      label: Contact details
       description: >-
-        See https://lorebooks.wiki/docs/reference/registry#owl-strings for
-        details on its usage. Skip this if you are fine publicizing your contact
-        details.
+        Please provide your email address or other contact information (i.e. a social media handle
+        or contact form on your link-in-bio page or website). This information will be used for
+        administrative communications.
+    validations:
+      required: true
   - type: input
     id: repo_url
     attributes:
       label: Link to repo
       description: >-
-        Link to your project's source code (or atleast its website) Skip this if
-        you don't fork MediaWiki/CMS backend (or static site generator tool and
-        theming) or just use upstream repo link.
+        Link to your project's source code (or atleast its website). If you use
+        a CMS (e.g. WordPress, Drupal, etc.) or wiki software (e.g. MediaWiki, Wiki.js,
+        etc.) instead of static site generator, skip this. If you also use a docs hosting
+        service (like GitBook), skip this and let us know.
   - type: markdown
     attributes:
       value: >-

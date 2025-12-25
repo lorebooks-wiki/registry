@@ -1,6 +1,6 @@
 providers:
   cf:
-    account_id: 33e6189a4a87f1923e71af8da171e2ed
+    account_id: b449d122b93967017aaaca1422691e68
     class: octodns_cloudflare.CloudflareProvider
     delete_pcent_threshold: 0.3
     token: env/CLOUDFLARE_TOKEN
@@ -14,5 +14,8 @@ zones:
     sources: [yaml-zonefiles]
     targets: [cf]
   stellapent.wiki.:
+    sources: [yaml-zonefiles]
+    targets: [cf]
+  lorebooks.eu.org.:
     sources: [yaml-zonefiles]
     targets: [cf]
