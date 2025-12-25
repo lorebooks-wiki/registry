@@ -1,0 +1,156 @@
+---
+? ''
+: - octodns:
+      cloudflare:
+        auto-ttl: true
+        proxied: true
+    ttl: 300
+    type: AAAA
+    value: '100::'
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: MX
+    values:
+    - exchange: route1.mx.cloudflare.net.
+      preference: 20
+    - exchange: route3.mx.cloudflare.net.
+      preference: 49
+    - exchange: route2.mx.cloudflare.net.
+      preference: 63
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: TXT
+    values:
+    - keybase-site-verification=pjVwKAYJSSlKawcYqv0G5yVz7fHG3aY7Df5elx-7-5o
+    - v=spf1 include:_spf.mx.cloudflare.net ~all
+3px7gcqyjwnj:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: gv-gozbfpjzyp6jef.dv.googlehosted.com.
+'*':
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: wildcard redirect via virtnet.bond VPS
+      proxied: true
+  ttl: 300
+  type: AAAA
+  value: 2a0f:85c1:8b5::7cc
+_acme-challenge.deno.hello:
+  octodns:
+    cloudflare:
+      comment: Managed by recaptime-dev
+  ttl: 300
+  type: CNAME
+  value: d2b325c1c3a7a45994130d36._acme.deno.dev.
+_dmarc:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: v=DMARC1\; p=reject\; sp=reject\; adkim=s\; aspf=s\;
+_github-challenge-internal-recaptime-dev-org.squad:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: gh-org:recaptimedev-internal
+  ttl: 300
+  type: TXT
+  value: ad5170d13e
+_github-challenge-lorebooks-wiki-org:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: github:@lorebooks-wiki
+  ttl: 300
+  type: TXT
+  value: 6fe19a58ee
+_github-pages-challenge-lorebooks-wiki:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: github-pages:@lorebooks-wiki
+  ttl: 300
+  type: TXT
+  value: 05753ad42f247c3d7e418bf1c1be46
+cf2024-1._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: v=DKIM1\; h=sha256\; k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB
+comments:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: vercel.com/recaptime-dev/comments-app
+  ttl: 300
+  type: CNAME
+  value: cname.vercel-dns.com.
+deno.hello:
+- octodns:
+    cloudflare:
+      comment: Managed by recaptime-dev
+  ttl: 300
+  type: A
+  value: 34.120.54.55
+- octodns:
+    cloudflare:
+      comment: Managed by recaptime-dev
+  ttl: 300
+  type: AAAA
+  value: '2600:1901:0:6d85::'
+hut-pages.experiments:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: pages.sr.ht.
+mssavow3lliv:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      comment: Google Search Console verification
+  ttl: 300
+  type: CNAME
+  value: gv-a3gwkxmx5rsdm7.dv.googlehosted.com.
+multiverse:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: multifandom-multiverse-wiki.pages.dev.
+mz9069.notify:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: ucig5l13257huo1pug5q0.mailazy.net.
+squad:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: recaptimedev-wiki.pages.dev.
+updates:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: CNAME
+  value: ghs.google.com.

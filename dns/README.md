@@ -3,7 +3,7 @@
 These YAML files are used and processed by [octoDNS](https://github.com/octodns/octodns)
 through the [Cloudflare provider](https://github.com/octodns/octodns-cloudflare). To make things
 organized, we seperate DNS configs first by project/org basis before merged back during production
-deployments.
+deployments using [`script/merge-zonefiles`](../script/merge-zonefiles).
 
 ## Supported DNS record types
 

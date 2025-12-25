@@ -1,22 +1,22 @@
 hackclub:
   octodns:
     cloudflare:
-      comment: Managed by ajhalili2006 on behalf of hackclub
+      comment: Managed by ajhalili2006 on behalf of @hackclub-community
   ttl: 300
   type: CNAME
-  value: ajhalili2006.hackclub.app.
-leeksbot.hackclub:
-  octodns:
-    cloudflare:
-      proxied: true
-      auto-ttl: true
-  ttl: 300
-  type: CNAME
-  value: hackclub-leeksbot.pages.dev.
+  value: proxyparty.recaptime.dev.
 hackclub.beta:
   octodns:
     cloudflare:
       comment: Managed by ajhalili2006 on behalf of hackclub
   ttl: 300
   type: CNAME
-  value: ajhalili2006.hackclub.app.
+  value: proxyparty.recaptime.dev.
+leeksbot.hackclub:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+      proxied: true
+  ttl: 300
+  type: CNAME
+  value: hackclub-leeksbot.pages.dev.

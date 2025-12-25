@@ -1,0 +1,43 @@
+# Centralized TXT records management for things like Vercel domain verification,
+# AT Proto handle, etc. at lorebooks.wiki, similarly to what we did at stellapent.wiki.
+# If it is for your project, just slap it to your project-specific YAML file instead.
+_atproto:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: did=did:plc:j5q63s5wh4vgejljn2wgrhbc
+_gh-lorebooks-wiki-o:
+  octodns:
+    cloudflare:
+      comment: github org verification
+  ttl: 300
+  type: TXT
+  value: dd65821f06
+_gh-lorebooks-wiki-o.beta:
+  octodns:
+    cloudflare:
+      comment: github org verification
+  ttl: 300
+  type: TXT
+  value: 84bf35bbce
+_github-pages-challenge-lorebooks-wiki:
+  octodns:
+    cloudflare:
+      comment: github pages verification
+  ttl: 300
+  type: TXT
+  value: 2a22effdf86f737bc1a90f9d9d9120
+_github-pages-challenge-lorebooks-wiki.beta:
+  octodns:
+    cloudflare:
+      comment: github pages verification
+  ttl: 300
+  type: TXT
+  value: 51a8f0224e55eb49a0b968e85ba1d9
+_vercel:
+  type: TXT
+  ttl: 300
+  values:
+    - "vc-domain-verify=blog.lorebooks.wiki,0e7b145bcf2e559dedc5"

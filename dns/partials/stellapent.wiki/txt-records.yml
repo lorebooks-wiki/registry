@@ -4,16 +4,16 @@
 _atproto:
   octodns:
     cloudflare:
-      comment: DID PLC verification for Bluesky
       auto-ttl: true
+      comment: DID PLC verification for Bluesky
   ttl: 300
   type: TXT
   value: did=did:plc:o3bwnr72ns6cl2b5si54po2e
 _github-pages-challenge-lorebooks-wiki:
   octodns:
     cloudflare:
-      comment: GitHub Pages verification
       auto-ttl: true
+      comment: GitHub Pages verification
   ttl: 300
   type: TXT
   value: 1f1f5fe977ae484b1917920fdb19a6

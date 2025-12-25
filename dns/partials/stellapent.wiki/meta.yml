@@ -1,26 +1,55 @@
 # Meta DNS records for Stellapent Cier Community Wiki and friends
 # Maintainers:
 # - Andrei Jiroh Halili (@ajhalili2006, ajhalili2006@crew.recaptime.dev)
-? ''
-: - octodns:
+"":
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: ALIAS
+    value: proxyparty.recaptime.dev.
+  - octodns:
       cloudflare:
         auto-ttl: true
     ttl: 300
     type: MX
-    value:
-      exchange: diphda.uberspace.de.
-      preference: 0
+    values:
+      - exchange: route1.mx.cloudflare.net.
+        preference: 71
+      - exchange: route3.mx.cloudflare.net.
+        preference: 81
+      - exchange: route2.mx.cloudflare.net.
+        preference: 96
   - octodns:
       cloudflare:
         auto-ttl: true
     ttl: 300
     type: TXT
-    value: v=spf1 include:spf.uberspace.de ~all
-uberspace._domainkey:
+    value: v=spf1 include:_spf.mx.cloudflare.net ~all
+"*":
   octodns:
     cloudflare:
-      comment: Uberspace DKIM records for RecapTime.dev
       auto-ttl: true
   ttl: 300
   type: CNAME
-  value: uberspace._domainkey.crew.recaptime.dev.
+  value: proxyparty.recaptime.dev.
+cf2024-1._domainkey:
+  octodns:
+    cloudflare:
+      auto-ttl: true
+  ttl: 300
+  type: TXT
+  value: v=DKIM1\; h=sha256\; k=rsa\; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweykoi+o48IOGuP7GR3X0MOExCUDY/BCRHoWBnh3rChl7WhdyCxW3jgq1daEjPPqoi7sJvdg5hEQVsgVRQP4DcnQDVjGMbASQtrY4WmB1VebF+RPJB2ECPsEDTpeiI5ZyUAwJaVX7r6bznU67g7LvFq35yIo4sdlmtZGV+i0H4cpYH9+3JJ78km4KXwaf9xUJCWF6nxeD+qG6Fyruw1Qlbds2r85U9dkNDVAS3gioCvELryh1TxKGiVTkg4wqHTyHfWsp7KD3WQHYJn0RyfJJu6YEmL77zonn7p2SRMvTMP3ZEXibnC9gz3nnhR6wcYL8Q7zXypKTMD58bTixDSJwIDAQAB
+go:
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: A
+    value: 34.120.54.55
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: AAAA
+    value: "2600:1901:0:6d85::"

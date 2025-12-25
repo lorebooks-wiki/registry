@@ -1,12 +1,12 @@
-# Reserved subdomains are managed at dns/partials/lorebooks.wiki/reserved.yml file,
-# see https://lorebooks.wiki/docs/reserved-subdomains for details.
-# DO NOT RESERVE YOUR SUBDOMAINS HERE BY MANUALLY EDITING THIS FILE!
+# DO NOT RESERVE YOUR SUBDOMAINS HERE BY JUST MANUALLY EDITING THIS FILE!
+# If you do, please file a issue first
 
 home:
   octodns:
     cloudflare:
       auto-ttl: true
       proxied: true
+      comment: "Redirect to lorebooks.wiki via proxyparty"
   ttl: 300
   type: CNAME
-  value: lorebooks-wiki.pages.dev.
+  value: proxyparty.recaptime.dev.
