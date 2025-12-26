@@ -1,17 +1,48 @@
+# yaml-language-server: $schema=https://www.schemastore.org/github-issue-forms.json
 name: Reserve a subdomain
 description: >-
-  Reserve a subdomain for your project or organization's future use or for trademark reasons.
+    Reserve a subdomain for your project or organization's future use or for trademark reasons.
 title: "[subdomain requests]: reserve subdomain.<lorebooks|stellapent>.wiki"
 body:
-  - type: checkboxes
-    id: legalese
-    attributes:
-      label: Legalese
-      options:
-        - label: >-
-            I agree to the [AUP and ToS](https://lorebooks.wiki/legal/tos/) of Community Lorebooks subdomain service
-            as well as [the code of conduct](https://policies.recaptime.dev/coc).
+    - type: markdown
+      attributes:
+          value: |
+              ## Subdomain reservation requests
+
+              Use this form to reserve a subdomain for your project/organization's future use or for trademark
+              reasons or update its details.
+              You can also use this form to redirect a subdomain to your own domain [via proxyparty](https://github.com/recaptime-dev/proxyparty-caddy).
+
+              Once your request is approved, your subdomain will be added to [this list](https://lorebooks.wiki/docs/reference/reserved-subdomains/) for transparency and to track which's which.
+              You may be asked to renew your subdomain reservation annually to ensure that it will be
+              eventually used, otherwise we'll revoke the reservation and release back for public use.
+    - type: checkboxes
+      id: legalese
+      attributes:
+          label: Legalese
+          options:
+              - label: >-
+                    I agree to the [AUP and ToS](https://lorebooks.wiki/legal/tos/) of Community Lorebooks subdomain service
+                    as well as [the code of conduct](https://policies.recaptime.dev/coc).
+                required: true
+              - label: >-
+                    I understand that the subdomain will be reserved for future use or for trademark reasons.
+                required: true
+    - type: dropdown
+      id: request_type
+      attributes:
+          label: Request type
+          options:
+              - Reserve a new subdomain
+              - Renew an existing subdomain reservation
+              - Update reservation reason
+      validations:
           required: true
-        - label: >-
-            I understand that the subdomain will be reserved for future use or for trademark reasons.
+    - type: textarea
+      id: reason
+      attributes:
+          label: Reason
+          description: >-
+              Please provide a reason for reserving the subdomain.
+      validations:
           required: true

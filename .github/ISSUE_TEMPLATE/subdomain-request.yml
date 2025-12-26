@@ -1,63 +1,63 @@
+# yaml-language-server: $schema=https://www.schemastore.org/github-issue-forms.json
 name: Request for subdomain
 description: >-
-  Use this issue form to request for a subdomain, even if you plan to write YAML
-  files yourself later on. This way, we can ensure that your subdomain is
-  properly configured and maintained alongside allowing us to review its purpose
-  even before sending any pull request.
+    Request for a subdomain here to check for availability or to review its purpose
+    before adding any DNS records.
 title: "[subdomain requests]: new subdomain - subdomain.<lorebooks|stellapent>.wiki"
 body:
-  - type: checkboxes
-    id: legalese
-    attributes:
-      label: Legalese
-      options:
-        - label: >-
-            I agree to the [AUP and ToS](https://lorebooks.wiki/legal/tos/) of Community Lorebooks subdomain service
-            as well as [the code of conduct](https://policies.recaptime.dev/coc).
+    - type: checkboxes
+      id: legalese
+      attributes:
+          label: Legalese
+          options:
+              - label: >-
+                    I agree to the [AUP and ToS](https://lorebooks.wiki/legal/tos/) of
+                    Community Lorebooks subdomain service
+                    as well as [the code of conduct](https://policies.recaptime.dev/coc).
+                required: true
+              - label: >-
+                    I confirm that I will use my subdomain for personal or
+                    non-profit/non-commerical use only.
+                required: true
+    - type: textarea
+      id: details
+      attributes:
+          label: Tell us about your project/organization
+          description: >-
+              A brief description about the project you are building to or your team
+              should be enough.
+      validations:
           required: true
-        - label: >-
-            I confirm that I will use my subdomain for personal or
-            non-profit/non-commerical use only.
+    - type: input
+      id: maintainer
+      attributes:
+          label: Who will be the designated subdomain maintainer
+          description: >-
+              If it is going to be used as a team, please mention the projects maintainers
+              and their contact details below alongside mentioning the primary point of contact
+              in this field.
+      validations:
           required: true
-  - type: textarea
-    id: details
-    attributes:
-      label: Tell us about your project/organization
-      description: >-
-        A brief description should be enough, alongside contact details for
-        administrative communications. If you need privacy, see the OWL string
-        field below.
-    validations:
-      required: true
-  - type: input
-    id: subdomain_maintainer
-    attributes:
-      label: Who will be the designated subdomain maintainer
-      description: >-
-        If it is going to be used as a team, please mention the projects maintainers
-        and their contact details.
-    validations:
-      required: true
-  - type: input
-    id: contact_details
-    attributes:
-      label: Contact details
-      description: >-
-        Please provide your email address or other contact information (i.e. a social media handle
-        or contact form on your link-in-bio page or website). This information will be used for
-        administrative communications.
-    validations:
-      required: true
-  - type: input
-    id: repo_url
-    attributes:
-      label: Link to repo
-      description: >-
-        Link to your project's source code (or atleast its website). If you use
-        a CMS (e.g. WordPress, Drupal, etc.) or wiki software (e.g. MediaWiki, Wiki.js,
-        etc.) instead of static site generator, skip this. If you also use a docs hosting
-        service (like GitBook), skip this and let us know.
-  - type: markdown
-    attributes:
-      value: >-
-        This template was generated with [Issue Forms Creator](https://issue-forms-creator.netlify.app)
+    - type: input
+      id: contact_details
+      attributes:
+          label: Contact details
+          description: >-
+              Please provide your email address or other contact information (i.e. a social media handle
+              or contact form on your link-in-bio page or website). This information will be used for
+              administrative communications.
+      validations:
+          required: true
+    - type: input
+      id: repo_url
+      attributes:
+          label: Link to repo
+          description: >-
+              Link to your project's source code (or atleast its website). If you use
+              a CMS (e.g. WordPress, Drupal, etc.) or wiki software (e.g. MediaWiki, Wiki.js,
+              etc.) instead of static site generator, skip this. If you also use a docs hosting
+              service (like GitBook), skip this and let us know.
+    - type: markdown
+      attributes:
+          value: >-
+              This template was generated with [Issue Forms Creator](https://issue-forms-creator.netlify.app)
