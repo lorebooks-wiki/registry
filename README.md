@@ -1,4 +1,4 @@
-# `registry.lorebooks.wiki`
+# `registry.lorebooks.wiki` - Subdomain Registry for Community Lorebooks
 
 [![octoDNS Deployments](https://github.com/lorebooks-wiki/registry/actions/workflows/dns.yml/badge.svg)](https://github.com/lorebooks-wiki/registry/actions/workflows/dns.yml)
 
@@ -15,6 +15,7 @@ used for digital gardens and wiki/documentation sites.
 * `stellapent.wiki` - Maintained by @ajhalili2006, used for all things related to Stellapent Cier
 universe in Gildedguy Stories series, although anyone in the Hyun's Dojo community can use it similarly
 to `lorebooks.wiki`.
+* `lorebooks.eu.org` - backup domain for `lorebooks.wiki` as a `eu.org` subdomain.
 
 If you do use (not only) Cloudflare as nameservers and/or want to team up with
 us to help maintain the service (maybe have some spare domains to donate to us

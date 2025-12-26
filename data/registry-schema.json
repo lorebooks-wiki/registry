@@ -1,224 +1,209 @@
 {
-    "type": "object",
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://api.lorebooks.wiki/yaml-schema",
-    "title": "Subdomain Registry YAML Schema - Community Lorebooks",
-    "description": "The YAML schema for Subdomain Registry as used on the Community Lorebooks API clients.",
-    "properties": {
-        "reserved": {
-            "type": "boolean",
-            "description": "Whether or not the subdomain is reserved from general use."
-        },
-        "domain_reservation_reason": {
-            "type": "string",
-            "description": "The reason why the subdomain is reserved. Must mention the issue/merge request/patch/email thread of the reservation request in question if reserved by a non-staff/maintainer."
-        },
-        "project_name": {
-            "type": "string",
-            "description": "The project name. Can be the website name for digital garden or the organization name for communities and umbrella organizations maintaining different projects under the subdomain."
-        },
-        "project_description": {
-            "type": "string",
-            "description": "Short description about the project in 300 characters or less.",
-            "minLength": 5,
-            "maxLength": 300
-        },
-        "project_repo_url": {
-            "type": "string",
-            "description": "Repository URL of the project. If the project does use an open-source CMS like MediaWiki and friends without forking, use the upstream or hosting provider's (if available) repo. Otherwise, use the repo URL where the config and source Markdown files for documentation/wiki reside.",
-            "format": "uri"
-        },
-        "project_licenses": {
-            "type": "array",
-            "description": "The licenses used by the project are in SPDX-License-Identifier format.",
-            "minItems": 1,
-            "items": {
-                "type": "string"
-            }
-        },
-        "subdomain_maintainers": {
-            "type": "array",
-            "description": "People who maintain the project subdomain. Can be the project maintainers if any or trusted community members.",
-            "uniqueItems": true,
-            "minItems": 1,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "Subdomain maintainer name. The use of legal names is not required, although the Recap Time Squad crew may ask for one privately in case of abuse reports."
-                    },
-                    "github": {
-                        "type": "string",
-                        "description": "Personal GitHub account username here."
-                    },
-                    "owl": {
-                        "type": "string",
-                        "description": "Your contact details, encrypted using `npm:node-jose` library and our private keys via the API. If you are using this, please remove the rest of the fields."
-                    },
-                    "email": {
-                        "type": "string"
-                    },
-                    "bluesky": {
-                        "type": "string",
-                        "description": "Your Bluesky handle in hostname format, not the did:plc user identifier.",
-                        "format": "hostname"
-                    },
-                    "fediverse": {
-                        "type": "string",
-                        "description": "Your fediverse profile URL.",
-                        "format": "uri"
-                    },
-                    "discord": {
-                        "type": "number",
-                        "description": "Discord user ID of the maintainer",
-                        "format": "int64"
-                    },
-                    "slack": {
-                        "type": "array",
-                        "description": "Your Slack workspaces, if they are publicly available to join or internal to your team.",
-                        "uniqueItems": true,
-                        "minItems": null,
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "team": {
-                                    "type": "string",
-                                    "description": "The Slack workspace slug of your team. If you are a Hack Clubber (HQ/HCB staff, current high-school student aged 18 and below, or otherwise alumni), use \"hackclub\" here.",
-                                    "default": "hackclub"
-                                },
-                                "team_id": {
-                                    "type": "string",
-                                    "description": "Your Slack workspace ID as used by Slack API. Use Slack Developer Tools app and run `/sdt whoami` or look for the team ID after \"https://app.slack.com/client/\" in the address bar. For Hack Clubbers, use Hack Club Slack workspace ID.",
-                                    "default": "T0266FRGM"
-                                },
-                                "user_id": {
-                                    "type": "string",
-                                    "description": "Your Slack user ID in the context of your workspace."
-                                },
-                                "username": {
-                                    "type": "string",
-                                    "description": "This is not the username used internally by Slack for technical reasons and is editable in your workspace's account settings. In the context of Hack Club Slack workspace, this is your screen/display name."
-                                }
-                            },
-                            "required": [
-                                "team",
-                                "team_id",
-                                "user_id",
-                                "username"
-                            ]
-                        }
-                    }
-                },
-                "required": [
-                    "name",
-                    "github"
-                ]
-            }
-        },
-        "contact_details": {
-            "type": "array",
-            "description": "Contact details of the organization or the lead maintainer.",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "github": {
-                        "type": "string",
-                        "description": "GitHub username of either the lead maintainer or the organization."
-                    },
-                    "email": {
-                        "type": "string",
-                        "description": "Email address of the team or lead maintainer.",
-                        "format": "email"
-                    },
-                    "owl": {
-                        "type": "string",
-                        "description": "Your contact details, encrypted using `npm:node-jose` library and our private keys via the API. If you are using this, please remove the rest of the fields."
-                    },
-                    "bluesky": {
-                        "type": "string"
-                    },
-                    "fediverse": {
-                        "type": "string"
-                    },
-                    "matrix": {
-                        "type": "string",
-                        "description": "Matrix channel or room of the project/organization. Must start with \"https://matrix.to/#/\"",
-                        "format": "uri"
-                    },
-                    "discord": {
-                        "type": "string",
-                        "description": "Discord server invite code",
-                        "minLength": 6,
-                        "maxLength": 35
-                    },
-                    "slack": {
-                        "type": "array",
-                        "description": "Your Slack workspaces, if they are publicly available to join or internal to your team.",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "team": {
-                                    "type": "string",
-                                    "description": "The Slack workspace slug of your team. If you are a Hack Clubber (HQ/HCB staff, current high-school student aged 18 and below, or otherwise alumni), use \"hackclub\" here.",
-                                    "default": "hackclub"
-                                },
-                                "team_id": {
-                                    "type": "string",
-                                    "description": "Your Slack workspace ID as used by Slack API. Use Slack Developer Tools app and run `/sdt whoami` or look for the team ID after \"https://app.slack.com/client/\" in the address bar. For Hack Clubbers, use Hack Club Slack workspace ID.",
-                                    "default": "T0266FRGM"
-                                },
-                                "channel": {
-                                    "type": "string",
-                                    "description": "The slugified channel name."
-                                },
-                                "channel_id": {
-                                    "type": "string",
-                                    "description": "Channel ID as seen on the Slack API."
-                                }
-                            },
-                            "required": [
-                                "team",
-                                "team_id",
-                                "channel",
-                                "channel_id"
-                            ]
-                        }
-                    },
-                    "zulip": {
-                        "type": "array",
-                        "description": "Information about an organization's Zulip instance.",
-                        "uniqueItems": true,
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "host": {
-                                    "type": "string",
-                                    "description": "Hostname of the Zulip instance in question. For Zulip Cloud, follow the format org.zulipcloud.com unless you do use custom domains."
-                                },
-                                "stream": {
-                                    "type": "string",
-                                    "description": "Zulip stream name"
-                                }
-                            },
-                            "required": [
-                                "host",
-                                "stream"
-                            ]
-                        }
-                    }
-                },
-                "required": [
-                    "github"
-                ]
-            }
-        }
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.lorebooks.wiki/yaml-schema",
+  "title": "Subdomain Registry YAML Schema - Community Lorebooks",
+  "description": "The YAML schema for Subdomain Registry as used on the Community Lorebooks API clients.",
+  "properties": {
+    "in_use": {
+      "type": "boolean",
+      "description": "Whether or not the subdomain is currently in use."
     },
-    "required": [
-        "project_name",
-        "project_description",
-        "project_repo_url",
-        "project_licenses",
-        "subdomain_maintainers"
-    ]
+    "reserved": {
+      "type": "boolean",
+      "description": "Whether or not the subdomain is reserved from general use."
+    },
+    "domain_reservation_reason": {
+      "type": "string",
+      "description": "The reason why the subdomain is reserved. Must mention the issue/merge request/patch/email thread of the reservation request in question if reserved by a non-staff/maintainer."
+    },
+    "project_name": {
+      "type": "string",
+      "description": "The project name. Can be the website name for digital garden or the organization name for communities and umbrella organizations maintaining different projects under the subdomain."
+    },
+    "project_description": {
+      "type": "string",
+      "description": "Short description about the project in 300 characters or less.",
+      "minLength": 5,
+      "maxLength": 300
+    },
+    "project_repo_url": {
+      "type": "string",
+      "description": "Repository URL of the project. If the project does use an open-source CMS like MediaWiki and friends without forking, use the upstream or hosting provider's (if available) repo. Otherwise, use the repo URL where the config and source Markdown files for documentation/wiki reside.",
+      "format": "uri"
+    },
+    "project_licenses": {
+      "type": "array",
+      "description": "The licenses used by the project are in SPDX-License-Identifier format.",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "subdomain_maintainers": {
+      "type": "array",
+      "description": "People who maintain the project subdomain. Can be the project maintainers if any or trusted community members.",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Subdomain maintainer name. The use of legal names is not required, although the Recap Time Squad crew may ask for one privately in case of abuse reports."
+          },
+          "github": {
+            "type": "string",
+            "description": "Personal GitHub account username here."
+          },
+          "owl": {
+            "type": "string",
+            "description": "Your contact details, encrypted using `npm:node-jose` library and our private keys via the API. If you are using this, please remove the rest of the fields."
+          },
+          "email": {
+            "type": "string"
+          },
+          "bluesky": {
+            "type": "string",
+            "description": "Your Bluesky handle in hostname format, not the did:plc user identifier.",
+            "format": "hostname"
+          },
+          "fediverse": {
+            "type": "string",
+            "description": "Your fediverse profile URL.",
+            "format": "uri"
+          },
+          "discord": {
+            "type": "number",
+            "description": "Discord user ID of the maintainer",
+            "format": "int64"
+          },
+          "slack": {
+            "type": "array",
+            "description": "Your Slack workspaces, if they are publicly available to join or internal to your team.",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "properties": {
+                "team": {
+                  "type": "string",
+                  "description": "The Slack workspace slug of your team. If you are a Hack Clubber (HQ/HCB staff, current high-school student aged 18 and below, or otherwise alumni), use \"hackclub\" here.",
+                  "default": "hackclub"
+                },
+                "team_id": {
+                  "type": "string",
+                  "description": "Your Slack workspace ID as used by Slack API. Use Slack Developer Tools app and run `/sdt whoami` or look for the team ID after \"https://app.slack.com/client/\" in the address bar. For Hack Clubbers, use Hack Club Slack workspace ID.",
+                  "default": "T0266FRGM"
+                },
+                "user_id": {
+                  "type": "string",
+                  "description": "Your Slack user ID in the context of your workspace."
+                },
+                "username": {
+                  "type": "string",
+                  "description": "This is not the username used internally by Slack for technical reasons and is editable in your workspace's account settings. In the context of Hack Club Slack workspace, this is your screen/display name."
+                }
+              },
+              "required": ["team", "team_id", "user_id", "username"]
+            }
+          }
+        },
+        "required": ["name", "github"]
+      }
+    },
+    "contact_details": {
+      "type": "array",
+      "description": "Contact details of the organization or the lead maintainer.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "github": {
+            "type": "string",
+            "description": "GitHub username of either the lead maintainer or the organization."
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address of the team or lead maintainer.",
+            "format": "email"
+          },
+          "owl": {
+            "type": "string",
+            "description": "Your contact details, encrypted using `npm:node-jose` library and our private keys via the API. If you are using this, please remove the rest of the fields."
+          },
+          "bluesky": {
+            "type": "string"
+          },
+          "fediverse": {
+            "type": "string"
+          },
+          "matrix": {
+            "type": "string",
+            "description": "Matrix channel or room of the project/organization. Must start with \"https://matrix.to/#/\"",
+            "format": "uri"
+          },
+          "discord": {
+            "type": "string",
+            "description": "Discord server invite code",
+            "minLength": 6,
+            "maxLength": 35
+          },
+          "slack": {
+            "type": "array",
+            "description": "Your Slack workspaces, if they are publicly available to join or internal to your team.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "team": {
+                  "type": "string",
+                  "description": "The Slack workspace slug of your team. If you are a Hack Clubber (HQ/HCB staff, current high-school student aged 18 and below, or otherwise alumni), use \"hackclub\" here.",
+                  "default": "hackclub"
+                },
+                "team_id": {
+                  "type": "string",
+                  "description": "Your Slack workspace ID as used by Slack API. Use Slack Developer Tools app and run `/sdt whoami` or look for the team ID after \"https://app.slack.com/client/\" in the address bar. For Hack Clubbers, use Hack Club Slack workspace ID.",
+                  "default": "T0266FRGM"
+                },
+                "channel": {
+                  "type": "string",
+                  "description": "The slugified channel name."
+                },
+                "channel_id": {
+                  "type": "string",
+                  "description": "Channel ID as seen on the Slack API."
+                }
+              },
+              "required": ["team", "team_id", "channel", "channel_id"]
+            }
+          },
+          "zulip": {
+            "type": "array",
+            "description": "Information about an organization's Zulip instance.",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "properties": {
+                "host": {
+                  "type": "string",
+                  "description": "Hostname of the Zulip instance in question. For Zulip Cloud, follow the format org.zulipcloud.com unless you do use custom domains."
+                },
+                "stream": {
+                  "type": "string",
+                  "description": "Zulip stream name"
+                }
+              },
+              "required": ["host", "stream"]
+            }
+          }
+        },
+        "required": ["github"]
+      }
+    }
+  },
+  "required": [
+    "project_name",
+    "project_description",
+    "project_repo_url",
+    "project_licenses",
+    "subdomain_maintainers"
+  ]
 }

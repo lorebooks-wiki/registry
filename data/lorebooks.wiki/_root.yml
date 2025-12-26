@@ -6,8 +6,8 @@ reserved: false
 project_name: "Community Lorebooks"
 project_description: "Community Lorebooks' main domain and project homepage"
 project_license:
-- MPL-2.0
-- CC-BY-SA-4.0
+  - MPL-2.0
+  - CC-BY-SA-4.0
 project_repo_url: https://github.com/lorebooks-wiki/homepage
 
 # Subdomain maintainers as PoCs (point of contacts)
@@ -26,16 +26,15 @@ subdomain_maintainers:
         username: ajhalili2006
         user_id: TBD  `1BG`
 
-
 # contact details for the team/project
 contact_details:
   github: recaptime-dev
   email: squad@crew.recaptime.dev
   slack:
     - team: hackclub
-      team_id: TBD
-      channel_name: recaptime-dev
-      channel_id: TBD
+      team_id: T0266FRGM
+      channel_name: lorebooks-wiki
+      channel_id: C08MKQ7A7EC
   zulip:
     - host: recaptime-dev.zulipchat.com
       stream: lorebooks.wiki
