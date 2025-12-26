@@ -29,12 +29,18 @@
     type: TXT
     value: v=spf1 include:_spf.mx.cloudflare.net ~all
 "*":
-  octodns:
-    cloudflare:
-      auto-ttl: true
-  ttl: 300
-  type: CNAME
-  value: proxyparty.recaptime.dev.
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: A
+    value: "4.186.27.24"
+  - octodns:
+      cloudflare:
+        auto-ttl: true
+    ttl: 300
+    type: AAAA
+    value: "2603:1040:a01::99"
 "*.mkdocs":
   octodns:
     cloudflare:
